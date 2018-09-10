@@ -3,7 +3,7 @@ SUBROUTINE JSL.TOPS.XTR.TT
 *============================================
 * Title: BI Teller Data Extraction
 * Initial Author: Yisau Ramon ; For Tops Analytics
-* Updated by : Yisau Ramon ; To handle multiple transaction in a single TT capturing.
+* Updated by : Yisau Ramon ; To handle multiple transactions in a single TT capturing.
 * Updated Date : 7th Sept 2018
 * Date: 1st May 2018
 *============================================
@@ -92,7 +92,7 @@ LOAD.DATA:
 NORMALIZE:
       FOR W=1 TO MV.CNT
 	        OUT.ARR<-1>=TT.ID:DLM:R.TT<TT.TE.TELLER.ID.1>:DLM:R.TT<TT.TE.DR.CR.MARKER>:DLM:R.TT<TT.TE.CURRENCY.1>:DLM:R.TT<TT.TE.ACCOUNT.1,W>
-            OUT.ARR:=DLM:R.TT<TT.TE.CUSTOMER.1>:DLM:R.TT<TT.TE.AMOUNT.LOCAL.1,W>:DLM:R.TT<TT.TE.AMOUNT.FCY.1>:DLM:V.DATE1
+            OUT.ARR:=DLM:R.TT<TT.TE.CUSTOMER.1>:DLM:R.TT<TT.TE.AMOUNT.LOCAL.1,W>:DLM:R.TT<TT.TE.AMOUNT.FCY.1,W>:DLM:V.DATE1
             OUT.ARR:=DLM:EX.DATE:DLM:R.TT<TT.TE.NARRATIVE.1,W>:DLM:R.TT<TT.TE.CURRENCY.2>:DLM:R.TT<TT.TE.TELLER.ID.2>
             OUT.ARR:=DLM:R.TT<TT.TE.ACCOUNT.2>:DLM:R.TT<TT.TE.CUSTOMER.2>:DLM:R.TT<TT.TE.AMOUNT.LOCAL.2>:DLM:R.TT<TT.TE.AMOUNT.FCY.2>
             OUT.ARR:=DLM:R.TT<TT.TE.NET.AMOUNT>:DLM:V.DATE2:DLM:R.TT<TT.TE.CHEQUE.NUMBER>:DLM:R.TT<TT.TE.CHRG.AMT.LOCAL>
